@@ -8,66 +8,61 @@
 html, body {
     height: 100%;
     overflow-x: hidden; /* Mencegah scroll horizontal */
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #e0eafc, #cfdef3);
-    color: #333333;
+    color: #333;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow-y: auto; /* Memastikan scroll vertikal tersedia jika diperlukan */
-    padding-top: 40px; /* Menambahkan padding atas untuk memberi ruang pada header */
+    padding-top: 60px; /* Menambahkan padding atas untuk memberi ruang pada header */
 }
 
 .container {
     width: 90%;
     max-width: 1200px;
-    margin: 20px auto;
     text-align: center;
 }
 
 h1 {
-    margin-bottom: 40px;
     font-size: 3.2em;
-    color: #333333;
+    color: #333;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
     font-weight: 700;
     letter-spacing: 2px;
-    animation: fadeIn 1s ease-out;
     position: sticky;
     top: 0;
-    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    background: #e0eafc;
     padding: 10px 0;
     z-index: 1000; /* Agar header di atas elemen lainnya */
+    margin-bottom: 40px;
+    animation: fadeIn 1s ease-out;
 }
 
 .certificate-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* Lima kolom */
-    gap: 20px; /* Jarak antara kolom */
+    gap: 20px;
     padding: 20px;
     margin-top: 80px; /* Margin atas untuk memberi ruang pada header */
 }
 
 .certificate-card {
     position: relative;
-    overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    background: #ffffff;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+    background: #fff;
     cursor: pointer;
-    border: 1px solid #eeeeee;
+    border: 1px solid #eee;
     height: 300px; /* Ukuran bingkai yang konsisten */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    animation: popIn 0.6s ease-out;
     overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
     text-align: center;
 }
 
@@ -75,8 +70,8 @@ h1 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: grayscale(50%);
     transition: transform 0.4s ease;
-    filter: grayscale(50%); /* Filter grayscale untuk gambar */
 }
 
 .certificate-card h2 {
@@ -85,14 +80,13 @@ h1 {
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
-    color: #ffffff;
+    color: #fff;
     padding: 10px;
     font-size: 1.2em;
     font-weight: bold;
     transition: background 0.4s ease, transform 0.4s ease;
-    z-index: 1;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .certificate-card:hover {
@@ -145,23 +139,13 @@ h1 {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes popIn {
-    from {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
 /* Media Queries */
@@ -178,43 +162,16 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.5em;
-    }
-
-    .certificate-grid {
-        grid-template-columns: repeat(2, 1fr); /* Dua kolom untuk layar lebih kecil */
-    }
-
-    .certificate-card {
-        height: 250px;
-    }
-
-    .certificate-card h2 {
-        font-size: 1em;
-    }
+    h1 { font-size: 2.5em; }
+    .certificate-grid { grid-template-columns: repeat(2, 1fr); /* Dua kolom untuk layar lebih kecil */ }
+    .certificate-card { height: 250px; }
+    .certificate-card h2 { font-size: 1em; }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 2em;
-    }
-
-    .certificate-grid {
-        grid-template-columns: 1fr; /* Satu kolom untuk layar sangat kecil */
-    }
-
-    .certificate-card {
-        height: 200px;
-    }
-
-    .certificate-card h2 {
-        font-size: 0.9em;
-        padding: 8px;
-    }
-
-    .popup-img {
-        max-width: 80%;
-        max-height: 70%;
-    }
+    h1 { font-size: 2em; }
+    .certificate-grid { grid-template-columns: 1fr; /* Satu kolom untuk layar sangat kecil */ }
+    .certificate-card { height: 200px; }
+    .certificate-card h2 { font-size: 0.9em; padding: 8px; }
+    .popup-img { max-width: 80%; max-height: 70%; }
 }
